@@ -16,7 +16,7 @@ using CoreFunctions3;
         public Dictionary<string, AsteroidDef> AsteroidTypes = new Dictionary<string, AsteroidDef>();
         public List<LootObject> AsteroidGenTable = new List<LootObject>(); //You Care about this. //Table of loot object created from the AsteroidDefs
         public List<LootObject> AsteroidGenStorage = new List<LootObject>(); //Storage for the randomly generated asteroids to asign to objects
-
+    public GameObject TESTOBJECT;
         public int AvalibleGens = 0;
         public int RegenAvalible = 40;
         bool init = false;
@@ -44,7 +44,7 @@ using CoreFunctions3;
 
         }
 
-        public (AsteroidDef , GameObject)  GenAsteroid()
+        public GameObject GenAsteroid()
         {
             if(!init == true)
             {
@@ -56,18 +56,20 @@ using CoreFunctions3;
             {
                 (AsteroidGenStorage , AsteroidGenTable) = CoreFunction.GenLootFromTableADV(AsteroidGenTable, 0, (initGenTable ? true : false) ,RegenAvalible);
                 initGenTable = true;
+                AvalibleGens = AsteroidGenStorage.Count;
             }
 
             //Gets Asteroid Object
             AsteroidDef returnval = (AsteroidDef) AsteroidGenStorage[0].object1;
             AsteroidGenStorage.RemoveAt(0);
             AvalibleGens = AsteroidGenStorage.Count;
+        Debug.LogWarning(AvalibleGens);
 
             //Gets Asteroid Model Prefab
             List<GameObject> ReturnPrefabLst = FindAstroidOfType(returnval.PrefabIdentifyers, AsteroidPrefabs);
-            GameObject ReturnPrefab = (GameObject)ReturnPrefabLst[Random.Range(0, ReturnPrefabLst.Count)];
+            GameObject ReturnPrefab =  ReturnPrefabLst[0];
         Debug.LogError("CREATED AN ASTEROID");
-            return (returnval, ReturnPrefab);
+            return (TESTOBJECT); //Fix Later
         }
 
 
@@ -110,13 +112,13 @@ using CoreFunctions3;
         {
             Table.Clear();
             //Creates Types of Asteroids. Must be added to the Asteroid Table
-            AsteroidDef TestAsteroid = new AsteroidDef("TestableAsteroid", "Testable", 56, true, "Red", new string[] { "Red", "Electric" }, "Red", new Range(3, 30), new Range(15, 40));
-            AsteroidDef BlueTestAsteroid = new AsteroidDef("BlueTestAsteroid", "TestBlue", 56, true, "Blue", new string[] {"Electric", "Blue" }, "blue", new Range(3, 300), new Range(17, 45));
+            AsteroidDef TestAsteroid = new AsteroidDef("TestableAsteroid", "Testable", 56, true, "Red",new string[] { "Green", "Lava" }, "Red", new Range(3, 30), new Range(15, 40));
+            AsteroidDef BlueTestAsteroid = new AsteroidDef("BlueTestAsteroid", "TestBlue", 56, true, "Blue", new string[] {"Electric", "Green" }, "blue", new Range(3, 300), new Range(17, 45));
             //Adds Asteroids to the Asteroid Table for class grab functionality
-            Table.Add(TestAsteroid.name, TestAsteroid);
+            // Table.Add(TestAsteroid.name, TestAsteroid);
             Table.Add(BlueTestAsteroid.name, BlueTestAsteroid);
             //Adds Asteroids to the "Loot" table for spawn functionality
-            AsteroidGenTable.Add(new LootObject("TestAst", 3, TestAsteroid));
+           // AsteroidGenTable.Add(new LootObject("TestAst", 3, TestAsteroid));
             AsteroidGenTable.Add(new LootObject("BlueTestAster", 2, BlueTestAsteroid));
             
         }
@@ -179,14 +181,10 @@ using CoreFunctions3;
             AsteroidPrefabs = new Dictionary<string, GameObject>();
             foreach (Object Asteroid in TempAsstroidArray)
             {
-                if (Asteroid is GameObject)
+                if (Asteroid is GameObject && Asteroid.name != null)
                 {
-                    if (Asteroid.name != null)
-                    {
-                        AsteroidPrefabs.Add(Asteroid.name, ((GameObject)Asteroid));
-                        Debug.Log("Added Astroid: " + Asteroid.name + "To Astroid Prefabs");
-                    }
-
+                    AsteroidPrefabs.Add(Asteroid.name, ((GameObject)Asteroid));
+                    Debug.Log("Added Astroid: " + Asteroid.name + "To Astroid Prefabs");
                 }
 
             }

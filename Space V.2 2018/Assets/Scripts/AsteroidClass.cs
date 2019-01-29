@@ -29,25 +29,25 @@ public class AsteroidClass : MonoBehaviour
     {
 
 
-        Setup();
+        Setup1();
 
     }
 
-    void Setup()
+    void Setup1()
     {
         //Yes. I know. MasterAster. It was funny. Just keep reading and move on.
-
+this.gameObject.name = "Hello Bob";
         AsterTransform = gameObject.GetComponent<Transform>();
 
         MasterAster = GameObject.Find(ParentControllerName);
         MasterScript = MasterAster.GetComponent<AsteroidController>();
 
-        (AsterDef, AsteroidPrefab) = MasterScript.GenAsteroid();
+        AsteroidPrefab = MasterScript.GenAsteroid();
         //So this is important. I don't know why I wrote any of this this way... but...
-        CF.CopyValues<object>(this, AsterDef);
+                                                                                                //CF.CopyValues<object>(this, AsterDef);
         //It just is. This ^^^ Grabs the values from our OTHER asteroid class and copies it. 
 
-        this.gameObject.name = name;
+        
         Instantiate(AsteroidPrefab, AsterTransform);
     }
     // Update is called once per frame
