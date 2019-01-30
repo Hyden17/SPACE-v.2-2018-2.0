@@ -107,6 +107,10 @@ using CoreFunctions3;
 
 
         }
+    /// <summary>
+    /// THE FOLLOWING ARE COMPLETELY INCORECT AND ARE SUBJECT TO REMOVAL. SEE ME FOR DETAILS :: WE ARE REQORKING IN PROPER OOP FASION
+    /// </summary>
+    /// <param name="Table"></param>
         //Initializes Asteroids
         void InitAsteroids(Dictionary<string, AsteroidDef> Table)
         {

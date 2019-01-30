@@ -8,7 +8,6 @@ public class AsteroidClass : MonoBehaviour
 {
     public string ParentControllerName = ""; //OBJECT WITH PARENT CONTROLLER (MUST HAVE ASTEROID CONTROL)
 
-    public string name;
     public string Type;
     public float health;
     public bool hasRigidbody;
@@ -24,16 +23,21 @@ public class AsteroidClass : MonoBehaviour
     private AsteroidController MasterScript;
     public AsteroidController.AsteroidDef AsterDef = null;
     public CoreFunctions CF = new CoreFunctions();
+    public bool HASSTART = false;
     // Start is called before the first frame update
     void Start()
     {
 
+        if(HASSTART == false)
+        {
 
-        Setup1();
+            DOSOMTHING();
+        }
+        
 
     }
 
-    void Setup1()
+    void DOSOMTHING()
     {
         //Yes. I know. MasterAster. It was funny. Just keep reading and move on.
 this.gameObject.name = "Hello Bob";
@@ -41,8 +45,6 @@ this.gameObject.name = "Hello Bob";
 
         MasterAster = GameObject.Find(ParentControllerName);
         MasterScript = MasterAster.GetComponent<AsteroidController>();
-
-        AsteroidPrefab = MasterScript.GenAsteroid();
         //So this is important. I don't know why I wrote any of this this way... but...
                                                                                                 //CF.CopyValues<object>(this, AsterDef);
         //It just is. This ^^^ Grabs the values from our OTHER asteroid class and copies it. 

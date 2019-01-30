@@ -44,7 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ParentControllerName: ACM
-  name: 
   Type: 
   health: 0
   hasRigidbody: 0
@@ -53,5 +52,6 @@ MonoBehaviour:
   AsterTransform: {fileID: 0}
   dropitem: {fileID: 0}
   SpecialProperties: {fileID: 0}
-  AsteroidPrefab: {fileID: 0}
+  AsteroidPrefab: {fileID: 1670538445574650, guid: c4cbe6c492f2da347a243c5d939e654f,
+    type: 3}
   MasterAster: {fileID: 0}
