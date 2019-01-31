@@ -335,6 +335,22 @@ PrefabInstance:
       propertyPath: AstroidsGen.Array.data[0]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 547238337, guid: f3a2a6d1c08be7a478a6203721812ec4, type: 3}
+      propertyPath: ArenaSize
+      value: 15000
+      objectReference: {fileID: 0}
+    - target: {fileID: 547238337, guid: f3a2a6d1c08be7a478a6203721812ec4, type: 3}
+      propertyPath: astroidSpread
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 547238337, guid: f3a2a6d1c08be7a478a6203721812ec4, type: 3}
+      propertyPath: NumberOfAstroids
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 547238337, guid: f3a2a6d1c08be7a478a6203721812ec4, type: 3}
+      propertyPath: ConflictCountMax
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 547238335, guid: f3a2a6d1c08be7a478a6203721812ec4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f3a2a6d1c08be7a478a6203721812ec4, type: 3}
@@ -363,7 +379,7 @@ PrefabInstance:
     - target: {fileID: 2331249707239843104, guid: 1900ac279d781344cbf45b3b0e157ebd,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -33.3
       objectReference: {fileID: 0}
     - target: {fileID: 2331249707239843104, guid: 1900ac279d781344cbf45b3b0e157ebd,
         type: 3}
@@ -499,11 +515,16 @@ PrefabInstance:
       propertyPath: rotation_tightness
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 7939632324485739962, guid: ab573060776bfd24590edcfc8d97ef31,
+        type: 3}
+      propertyPath: afterburner_Shake_Amount
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7939632324485739963, guid: ab573060776bfd24590edcfc8d97ef31,
         type: 3}
       propertyPath: pointerTexture
       value: 
-      objectReference: {fileID: 2800000, guid: 3828490b4a65c414e8077a5bf7be8a43, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 7939632324485739940, guid: ab573060776bfd24590edcfc8d97ef31,
         type: 3}
       propertyPath: far clip plane

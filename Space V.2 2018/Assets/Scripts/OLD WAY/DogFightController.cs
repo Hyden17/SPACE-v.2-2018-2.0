@@ -14,9 +14,7 @@ public class DogFightController : MonoBehaviour
     public float ArenaSize;
     public GameObject[] AstroidsGen;
     public int ConflictCountMax = 200;
-
-    //Test Pilot
- [SerializeField]   public GameObject[] AstroidsTest;
+[SerializeField]   public GameObject[] AstroidsTest;
 
 
    // Start is called before the first frame update
@@ -58,7 +56,7 @@ public class DogFightController : MonoBehaviour
         {
             IsConflict = false;
             Vector3 NewPos = new Vector3(0, 0, 0) + centerCoords;
-            NewPos = NewPos + Random.onUnitSphere * Random.Range(0f, ArenaSize);
+            NewPos = NewPos + Random.insideUnitSphere * ArenaSize;
             foreach (Vector3 TryPos in AstroidPosLst)
             {
                 if ((NewPos - TryPos).magnitude < astroidSpread)
