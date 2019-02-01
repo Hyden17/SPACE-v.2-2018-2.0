@@ -47,7 +47,7 @@ namespace LootFunctions
             Loots.Add(item);
         }
 
-        void GenJoshLoot(int iterations)
+        List<object> GenJoshLoot(int iterations)
         {
             List<object> ReturnTable = new List<object>();
             for (int i = 0; i <= iterations; i++)
@@ -57,11 +57,11 @@ namespace LootFunctions
                 {
                     if ((item.ProbabilityRangeFrom <= SPAWNvalue) && (SPAWNvalue <= item.ProbabilityRangeTo))
                     {
-                        ReturnTable.Add(item);
+                        ReturnTable.Add(item.object1);
                     }
                 }
             }
-
+            return ReturnTable;
 
         }
 

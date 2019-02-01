@@ -23,8 +23,7 @@ public class DogFightController : MonoBehaviour
         if (AstroidState == AstroidFeild.Sphere)
         {
             //castle
-            var AstroidCords = AstroidSpherePOS();
-            GenerateFeild(AstroidCords, AstroidsGen);
+            
         }
         
     }
@@ -34,8 +33,9 @@ public class DogFightController : MonoBehaviour
     {
         
     }
-    
-    void GenerateFeild(List<Vector3> FeildList, GameObject[] AstroidGen)
+  
+ /*  
+    void DepreciatedGenerateFeild(List<Vector3> FeildList, GameObject[] AstroidGen)
     {
         foreach(Vector3 CoPoint in FeildList)
         {
@@ -45,6 +45,7 @@ public class DogFightController : MonoBehaviour
 
         }
     }
+*/
 
     List<Vector3> AstroidSpherePOS()
     {
