@@ -10,9 +10,14 @@ public class WorldObject : MonoBehaviour
     public Rigidbody RB;
     public Object OnDestroyObject;
     public Vector3 Position;
-    public bool UseGravity;
+    public bool UseJamesGravity;
     public string Type;
-    public bool OnUpdateFunction;
+    public void OnUpdateFunction()
+    {
+
+
+
+    }
     
 
     

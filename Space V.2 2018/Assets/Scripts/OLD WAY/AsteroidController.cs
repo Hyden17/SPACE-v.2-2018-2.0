@@ -172,28 +172,29 @@ using CoreFunctions3;
                         ReturnSet.Add(x.Value);
                         break;
                     }
-                }
+                } 
             }
             return ReturnSet;
         }
 
-
-        //Gets the Asteroids from Reasorce Folder
-        void GetAsteroids(string ASFP)
-        {
-            Object[] TempAsstroidArray = Resources.LoadAll(ASFP, typeof(GameObject));
-            AsteroidPrefabs = new Dictionary<string, GameObject>();
-            foreach (Object Asteroid in TempAsstroidArray)
+    /*
+            //Gets the Asteroids from Reasorce Folder
+            void GetAsteroids(string ASFP)
             {
-                if (Asteroid is GameObject && Asteroid.name != null)
+                Object[] TempAsstroidArray = Resources.LoadAll(ASFP, typeof(GameObject));
+                AsteroidPrefabs = new Dictionary<string, GameObject>();
+                foreach (Object Asteroid in TempAsstroidArray)
                 {
-                    AsteroidPrefabs.Add(Asteroid.name, ((GameObject)Asteroid));
-                    Debug.Log("Added Astroid: " + Asteroid.name + "To Astroid Prefabs");
+                    if (Asteroid is GameObject && Asteroid.name != null)
+                    {
+                        AsteroidPrefabs.Add(Asteroid.name, ((GameObject)Asteroid));
+                        Debug.Log("Added Astroid: " + Asteroid.name + "To Astroid Prefabs");
+                    }
+
                 }
 
-            }
 
+    */
 
-
-        }
     }
+

@@ -101,7 +101,7 @@ namespace CoreFunctions3
             Type t = typeof(T);
             var properties = t.GetProperties();
 
-            foreach( var prop in properties)
+            foreach (var prop in properties)
             {
                 var value = prop.GetValue(source, null);
                 if (value != null)
@@ -111,7 +111,30 @@ namespace CoreFunctions3
             }
 
         }
-        
+
+        public List<object> GetReas(string ASFP, Type type)
+        {
+
+            List<object> returnDict = new List<object>();
+            object[] TempArray = Resources.LoadAll(ASFP, type);
+            
+            foreach (object NewObj in TempArray)
+            {
+                if (NewObj.GetType() == type)
+                {
+                    returnDict.Add((NewObj));
+                    Debug.Log("Added Astroid: To Astroid Prefabs");
+                }
+            }
+
+            return returnDict;
+
+        }
+
+
+
+    }
+ /*
         //An Experiment in using lists. -- I know. It was about time.
         public (List<LootObject>, LootObject[]) GenerateLootFromTable(LootObject[] table, float SetMax = 0f, bool SavedTable = false, int iterations = 1) //If saved table is true, then the Range values have already been aisgned. Preformance Saver.
         {
@@ -205,5 +228,5 @@ namespace CoreFunctions3
 
         }
 
-    }
+    }*/
 }

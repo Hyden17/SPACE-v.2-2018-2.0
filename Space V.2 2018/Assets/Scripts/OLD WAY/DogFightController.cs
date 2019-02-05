@@ -46,7 +46,7 @@ public class DogFightController : MonoBehaviour
         }
     }
 */
-
+/*
     List<Vector3> AstroidSpherePOS()
     {
         List<Vector3> AstroidPosLst = new List<Vector3>();
@@ -87,3 +87,4 @@ public class DogFightController : MonoBehaviour
     }
 
 }
+*/
