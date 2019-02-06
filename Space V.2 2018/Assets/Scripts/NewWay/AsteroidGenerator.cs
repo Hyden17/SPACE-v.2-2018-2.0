@@ -39,11 +39,49 @@ public class AsteroidGenerator : MonoBehaviour
 
     void GenAsteroidFieldInit()
     {
-        AsteroidPrefabs = CoreFunction.GetReas(AsteroidFilePath);
+        AsteroidPrefabs = CoreFunction.GetReas(AsteroidFilePath, GameObject);
         
 
     }
 
+    List<Vector3> AstroidSpherePOS()
+    {
+        List<Vector3> AstroidPosLst = new List<Vector3>();
+        int CoordCount = NumberOfAstroids;
+        bool IsConflict = false;
+        int ConflictCount = 0;
+        for (int x = 0; x < CoordCount; x++)
+        {
+            IsConflict = false;
+            Vector3 NewPos = new Vector3(0, 0, 0) + centerCoords;
+            NewPos = NewPos + Random.insideUnitSphere * ArenaSize;
+            foreach (Vector3 TryPos in AstroidPosLst)
+            {
+                if ((NewPos - TryPos).magnitude < astroidSpread)
+                {
+                    IsConflict = true;
+                    break;
+                }
+            }
+            if (IsConflict == true)
+            {
+                CoordCount++;
+                ConflictCount++;
+
+            }
+            else
+            {
+                AstroidPosLst.Add(NewPos);
+            }
+            if (ConflictCount > ConflictCountMax)
+            {
+                Debug.Log("Generated Over" + ConflictCount + "Conflicts, Lower astroid number or rase Feild Size.");
+                break;
+            }
+        }
+        Debug.Log("Succesfully Generated:" + AstroidPosLst.Count + "Coordinates");
+        return AstroidPosLst;
+    }
 
     // Update is called once per frame
     void Update()

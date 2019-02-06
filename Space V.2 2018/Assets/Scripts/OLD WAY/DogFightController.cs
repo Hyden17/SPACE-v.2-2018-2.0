@@ -8,32 +8,32 @@ public class DogFightController : MonoBehaviour
     public Vector3 centerCoords;
     public GameObject PlayFeild;
     public GameObject player;
-    public enum AstroidFeild {Sphere, Torus, Mirrored, Falling};
+    public enum AstroidFeild { Sphere, Torus, Mirrored, Falling };
     public AstroidFeild AstroidState;
     public float astroidSpread;
     public float ArenaSize;
     public GameObject[] AstroidsGen;
     public int ConflictCountMax = 200;
-[SerializeField]   public GameObject[] AstroidsTest;
+    [SerializeField] public GameObject[] AstroidsTest;
 
 
-   // Start is called before the first frame update
+    // Start is called before the first frame update
     void Start()
     {
         if (AstroidState == AstroidFeild.Sphere)
         {
             //castle
-            
+
         }
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
-  
+}
  /*  
     void DepreciatedGenerateFeild(List<Vector3> FeildList, GameObject[] AstroidGen)
     {
