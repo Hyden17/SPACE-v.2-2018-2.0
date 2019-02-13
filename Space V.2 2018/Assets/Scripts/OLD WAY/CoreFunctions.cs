@@ -122,7 +122,7 @@ namespace CoreFunctions3
             {
                 if (NewObj.GetType() == type)
                 {
-                    returnLst.Add((NewObj));
+                    returnLst.Add((dynamic)(NewObj));
                     Debug.Log("Added Astroid:  To Astroid Prefabs");
                 }
             }
