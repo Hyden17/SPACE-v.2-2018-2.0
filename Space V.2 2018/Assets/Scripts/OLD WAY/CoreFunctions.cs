@@ -112,19 +112,17 @@ namespace CoreFunctions3
 
         }
         
-        public List<dynamic> GetReas(string ASFP, Type type)
+        public List<dynamic> GetReas(string ASFP)
         {
             
+            
             List<dynamic> returnLst = new List<dynamic>();
-            object[] TempArray = Resources.LoadAll(ASFP, type);
+            object[] TempArray = Resources.LoadAll(ASFP);
             
             foreach (object NewObj in TempArray)
             {
-                if (NewObj.GetType() == type)
-                {
-                    returnLst.Add((dynamic)(NewObj));
-                    Debug.Log("Added Astroid:  To Astroid Prefabs");
-                }
+                    returnLst.Add((NewObj));
+                    Debug.Log("Added Astroid:  To Astroid Prefabs");   
             }
 
             return returnLst;

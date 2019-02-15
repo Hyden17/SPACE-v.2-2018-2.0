@@ -35,11 +35,11 @@ public class AsteroidGenerator : MonoBehaviour
     {
         
     }
-
+    
 
     void GenAsteroidFieldInit()
     {
-        AsteroidPrefabs = CoreFunction.GetReas(AsteroidFilePath, GameObject);
+        AsteroidPrefabs = CoreFunction.GetReas(AsteroidFilePath);
         
 
     }
