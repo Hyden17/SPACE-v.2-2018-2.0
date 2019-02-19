@@ -7,7 +7,7 @@ public class AsteroidGenerator : MonoBehaviour
 {
     public CoreFunctions CoreFunction = new CoreFunctions();
     public string AsteroidFilePath;
-    public List<GameObject> AsteroidPrefabs = new List<GameObject>();
+    public List<dynamic> AsteroidPrefabs = new List<dynamic>();
  //Storage for the randomly generated asteroids to asign to objects
     public int AvalibleGens = 0;
     public int RegenAvalible = 40;
