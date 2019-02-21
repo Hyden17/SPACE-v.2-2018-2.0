@@ -112,11 +112,11 @@ namespace CoreFunctions3
 
         }
         
-        public List<dynamic> GetReas(string ASFP)
+        public List<object> GetReas(string ASFP)
         {
             
             
-            List<dynamic> returnLst = new List<dynamic>();
+            List<object> returnLst = new List<object>();
             object[] TempArray = Resources.LoadAll(ASFP);
             
             foreach (object NewObj in TempArray)

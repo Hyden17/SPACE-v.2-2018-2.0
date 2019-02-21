@@ -7,10 +7,8 @@ public class AsteroidGenerator : MonoBehaviour
 {
     public CoreFunctions CoreFunction = new CoreFunctions();
     public string AsteroidFilePath;
-    public List<dynamic> AsteroidPrefabs = new List<dynamic>();
+    public List<object> AsteroidPrefabs = new List<object>();
  //Storage for the randomly generated asteroids to asign to objects
-    public int AvalibleGens = 0;
-    public int RegenAvalible = 40;
     bool initGenTable = false;
 
 
@@ -33,21 +31,29 @@ public class AsteroidGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        GenAsteroidFieldInit();
+
     }
     
 
     void GenAsteroidFieldInit()
     {
         AsteroidPrefabs = CoreFunction.GetReas(AsteroidFilePath);
-        
+        foreach(object AsterObject in AsteroidPrefabs)
+        {
+            if(AsterObject.GetType() != typeof(GameObject))
+            {
+                AsteroidPrefabs.Remove(AsterObject);
+            }
+        }
+
 
     }
 
-    List<Vector3> AstroidSpherePOS()
+    List<Vector3> AstroidSpherePOS(int Count)
     {
         List<Vector3> AstroidPosLst = new List<Vector3>();
-        int CoordCount = NumberOfAstroids;
+        int CoordCount = Count;
         bool IsConflict = false;
         int ConflictCount = 0;
         for (int x = 0; x < CoordCount; x++)
@@ -88,4 +94,5 @@ public class AsteroidGenerator : MonoBehaviour
     {
         
     }
+
 }

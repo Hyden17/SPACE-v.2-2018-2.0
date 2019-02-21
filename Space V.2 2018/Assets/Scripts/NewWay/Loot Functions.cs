@@ -25,26 +25,49 @@ namespace LootFunctions
 
     public class LootTable
     {
+
         public List<LootObject> Loots = new List<LootObject>();
         float HardMax = 0;
         float TempMax = 0;
 
-        void AddTable(List<LootObject> table)
+        public void AddItem(string name, object obj = null, float weight = 1)
+        {
+            LootObject Temploot = new LootObject(name, weight, obj);
+            AddItemToTable(Temploot);
+            
+        }
+
+        public void AddTable(List<LootObject> table)
         {
             foreach (LootObject item in table)
             {
 
-                AddItem(item);
+                AddItemToTable(item);
             }
         }
 
-        void AddItem(LootObject item)
+        void AddItemToTable(LootObject item)
         {
             //A bit Complicated so hear me out
             item.ProbabilityRangeFrom = HardMax;
             HardMax += item.SpawnWeight;
             item.ProbabilityRangeTo = HardMax;
             Loots.Add(item);
+        }
+
+        void RemoveItemFromTable(LootObject item)
+        {
+            //Also bit Complicated so hear me out
+            //Mostly recalculating the entire loot table
+            Loots.Remove(item);
+            HardMax = 0;
+            foreach (LootObject tempitem in Loots)
+            {
+                item.ProbabilityRangeFrom = HardMax;
+                HardMax += item.SpawnWeight;
+                item.ProbabilityRangeTo = HardMax;
+                Loots.Add(item);
+            }
         }
 
         List<object> GenJoshLoot(int iterations)
