@@ -12,6 +12,7 @@ public class WorldObject : MonoBehaviour
     public Vector3 Position;
     public bool UseJamesGravity;
     public string Type;
+
     public void OnUpdateFunction()
     {
 
@@ -34,7 +35,7 @@ public class WorldObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        RB = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -42,4 +43,8 @@ public class WorldObject : MonoBehaviour
     {
         
     }
+}
+public interface IinteractiveObject<T>
+{
+
 }
