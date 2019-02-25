@@ -5,13 +5,15 @@ using CoreFunctions3;
 
 public class AsteroidBase : WorldObject
 {
-    GameObject model;
-    GameObject droploot;
-    GameObject effect;
-    Range speed;
-    bool ismoving;
-    bool gravity = false;
-    bool UseDefaultVector = false;
+    public readonly bool pregenerated;
+    public string[] modelspecifiers;
+    public GameObject model;
+    public GameObject droploot;
+    public GameObject effect;
+    public Range speed;
+    public bool ismoving;
+    public bool gravity = false;
+    public bool UseDefaultVector = false;
 
 
     [HideInInspector]
@@ -21,12 +23,22 @@ public class AsteroidBase : WorldObject
     
     void Onkill()
     {
-     
+      
     }
 
     // Update is called once per frame
-    
-    
+
+
+    public void Launch()
+    {
+        Instantiate(model, this.transform);
+        Instantiate(model, this.transform);
+        directionalForce(UseDefaultVector);
+        UseGravity(gravity);
+
+    }
+
+
     void directionalForce(bool UseDefault = false)
     {
         if(UseDefault == false)
@@ -39,11 +51,8 @@ public class AsteroidBase : WorldObject
         }
     }
 
-    void Gravity(bool grav)
+    void UseGravity(bool grav)
     {
         RB.useGravity = grav;
     }
-
-
-
 }
