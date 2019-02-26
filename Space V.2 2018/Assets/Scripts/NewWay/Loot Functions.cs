@@ -70,7 +70,7 @@ namespace LootFunctions
             }
         }
 
-        List<object> GenJoshLoot(int iterations)
+        List<object> GenJoshLoot(int iterations) //Dose Not remove when generated
         {
             List<object> ReturnTable = new List<object>();
             for (int i = 0; i <= iterations; i++)
@@ -85,7 +85,26 @@ namespace LootFunctions
                 }
             }
             return ReturnTable;
+        }
 
+        List<object> GenJamesLoot(int iterations) //Removes Item Once Generated
+        {
+
+            List<object> ReturnTable = new List<object>();
+            for (int i = 0; i <= iterations; i++)
+            {
+                float SPAWNvalue = UnityEngine.Random.Range(1f, TempMax);
+                foreach (LootObject item in Loots)
+                {
+                    if ((item.ProbabilityRangeFrom <= SPAWNvalue) && (SPAWNvalue <= item.ProbabilityRangeTo))
+                    {
+                        ReturnTable.Add(item.object1);
+                        RemoveItemFromTable(item);
+                    }
+                }
+            }
+            Debug.LogWarning("Just Saying...This Table is now obsolete");
+            return ReturnTable;
         }
 
     }

@@ -45,7 +45,17 @@ namespace CoreFunctions3
         }
 
     }
-
+    [Serializable]
+    public struct SerializePairGONE  //GONE  --> GameObject Number Enumerator (Whatever that means... used in random generation as an array
+    {
+        public GameObject Object;
+        public int Number;
+        SerializePairGONE(GameObject GO, int NE)
+        {
+            Object = GO;
+            Number = NE;
+        }
+    }
 
     public class CoreFunctions
     {
