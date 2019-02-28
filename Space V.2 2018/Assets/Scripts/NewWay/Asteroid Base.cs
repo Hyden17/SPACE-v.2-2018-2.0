@@ -14,7 +14,7 @@ public class AsteroidBase : WorldObject
     public bool ismoving;
     public bool gravity = false;
     public bool UseDefaultVector = false;
-
+    public Range[] Scale = new Range[3];
 
     [HideInInspector]
     Vector3 TravelDirection = new Vector3();

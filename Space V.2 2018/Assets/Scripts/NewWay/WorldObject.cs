@@ -36,6 +36,7 @@ public class WorldObject : MonoBehaviour
     void Start()
     {
         RB = GetComponent<Rigidbody>();
+
     }
 
     // Update is called once per frame

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using CoreFunctions3;
 
-public class AsteroidGenerator : MonoBehaviour
+public class AsteroidGenerator
 {
     public CoreFunctions CoreFunction = new CoreFunctions();
     public string AsteroidFilePath;

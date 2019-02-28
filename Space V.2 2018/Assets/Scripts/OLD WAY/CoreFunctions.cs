@@ -123,7 +123,7 @@ namespace CoreFunctions3
 
         }
 
-        public List<GameObject> FindAstroidOfType(string[] Param, Dictionary<string, GameObject> ObjectList, int CheckCount = 0)
+        public List<GameObject> FindObjectOfType(string[] Param, Dictionary<string, GameObject> ObjectList, int CheckCount = 0)
         {
             if (CheckCount >= Param.Length)
             {

@@ -112,6 +112,36 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &174556718
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 174556719}
+  m_Layer: 0
+  m_Name: CoreFranzController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &174556719
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174556718}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.0744343, y: 9.82003, z: -12.005238}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &755660902
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,8 +171,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9edf891cd54f8064ca020f62444fcfdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AsterNumber:
-  - Object: {fileID: 0}
+  AsterTableCollection1: []
+  ExtraAster:
+    Object: {fileID: 0}
     Number: 0
   Centercoords: {x: 0, y: 0, z: 0}
   AsteroidCount: 0
@@ -227,10 +258,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0e0e693f33d19f409c79c260c3d47ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AsteroidFilePath: Asteroids/Prefabs
-  TESTOBJECT: {fileID: 1382117583398658, guid: c75521a60dfc7de48ba2feb45eb34abe, type: 3}
-  AvalibleGens: 0
-  RegenAvalible: 40
 --- !u!4 &2093941402
 Transform:
   m_ObjectHideFlags: 0

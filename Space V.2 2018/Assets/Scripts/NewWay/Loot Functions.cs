@@ -83,7 +83,7 @@ namespace LootFunctions
                         ReturnTable.Add(item.object1);
                     }
                 }
-            }
+            } 
             return ReturnTable;
         }
 
