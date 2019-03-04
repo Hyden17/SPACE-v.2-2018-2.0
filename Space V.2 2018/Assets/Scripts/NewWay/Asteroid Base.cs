@@ -15,9 +15,7 @@ public class AsteroidBase : WorldObject
     public bool gravity = false;
     public bool UseDefaultVector = false;
     public Range[] Scale = new Range[3];
-
-    [HideInInspector]
-    Vector3 TravelDirection = new Vector3();
+    public Vector3 TravelDirection = new Vector3();
     // Start is called before the first frame update
 
     
@@ -31,7 +29,7 @@ public class AsteroidBase : WorldObject
 
     public void Launch()
     {
-        Instantiate(model, this.transform);
+
         Instantiate(model, this.transform);
         directionalForce(UseDefaultVector);
         UseGravity(gravity);
