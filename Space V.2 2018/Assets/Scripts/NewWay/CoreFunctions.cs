@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using LootFunctions;
 
 namespace CoreFunctions3
 {
@@ -139,8 +140,41 @@ namespace CoreFunctions3
 
         public List<GameObject> Object_to_GameObject(List<object> Input)
         {
-
+            List<GameObject> Returnlist = new List<GameObject>();
+            foreach(object obj in Input)
+            {
+                Returnlist.Add(obj as GameObject);
+            }
+            return Returnlist;
         }
+
+        public List<GameObject> FindObjectFromGameObject(string[] Param, List<GameObject> ObjectInput, int CheckCount = 0)
+        {
+            Dictionary<string, object> ForConvert = GameObjecttoNameObjDict(ObjectInput);
+            List<object> SemiReturn = FindObjectOfType(Param, ForConvert, CheckCount);
+            List<GameObject> ReturnList = Object_to_GameObject(SemiReturn);
+            return ReturnList;
+        }
+
+        public List<GameObject> ConvinenceLoot(List<GameObject> obj, int count = 1)
+        {
+            List<GameObject> ReturnList = new List<GameObject>();
+            if (count == 1)
+            {
+                int Num = UnityEngine.Random.Range(0, obj.Count);
+                ReturnList.Add(obj[Num]);
+                return ReturnList;
+            }
+            else
+            {
+                for(int i = 1; i <= count; i++ )
+                {
+                    int Num = UnityEngine.Random.Range(0, obj.Count);
+                    ReturnList.Add(obj[Num]);
+                }
+            }
+            return ReturnList;
+        }
+        
     }
-    
 }

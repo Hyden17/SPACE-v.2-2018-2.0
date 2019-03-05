@@ -81,6 +81,7 @@ namespace LootFunctions
                     if ((item.ProbabilityRangeFrom <= SPAWNvalue) && (SPAWNvalue <= item.ProbabilityRangeTo))
                     {
                         ReturnTable.Add(item.object1);
+                        Debug.LogWarning("Heaphalumps and Woosals");
                     }
                 }
             } 
