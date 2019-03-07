@@ -148,15 +148,14 @@ namespace CoreFunctions3
             return Returnlist;
         }
 
-        public List<GameObject> FindObjectFromGameObject(string[] Param, List<GameObject> ObjectInput, int CheckCount = 0)
+        public Quaternion RandQuaternion()
         {
-            Dictionary<string, object> ForConvert = GameObjecttoNameObjDict(ObjectInput);
-            List<object> SemiReturn = FindObjectOfType(Param, ForConvert, CheckCount);
-            List<GameObject> ReturnList = Object_to_GameObject(SemiReturn);
-            return ReturnList;
+            Quaternion returnQuat = new Quaternion(UnityEngine.Random.Range(1, 360), UnityEngine.Random.Range(1, 360), UnityEngine.Random.Range(1, 360), UnityEngine.Random.Range(1, 360));
+            return returnQuat;
         }
+        
 
-        public List<GameObject> ConvinenceLoot(List<GameObject> obj, int count = 1)
+        public List<GameObject> ConvenienceLoot(List<GameObject> obj, int count = 1)
         {
             List<GameObject> ReturnList = new List<GameObject>();
             if (count == 1)
@@ -175,6 +174,13 @@ namespace CoreFunctions3
             }
             return ReturnList;
         }
-        
+
+        public List<GameObject> FindObjectFromGameObject(string[] Param, List<GameObject> ObjectInput, int CheckCount = 1) //Finds from List of GameObjects
+        {
+            Dictionary<string, object> ForConvert = GameObjecttoNameObjDict(ObjectInput);
+            List<object> SemiReturn = FindObjectOfType(Param, ForConvert, CheckCount);
+            List<GameObject> ReturnList = Object_to_GameObject(SemiReturn);
+            return ReturnList;
+        }
     }
 }

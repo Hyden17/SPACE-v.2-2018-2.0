@@ -70,7 +70,7 @@ namespace LootFunctions
             }
         }
 
-        List<object> GenJoshLoot(int iterations) //Dose Not remove when generated
+        public List<object> GenJoshLoot(int iterations) //Dose Not remove when generated
         {
             List<object> ReturnTable = new List<object>();
             for (int i = 0; i <= iterations; i++)
@@ -88,7 +88,7 @@ namespace LootFunctions
             return ReturnTable;
         }
 
-        List<object> GenJamesLoot(int iterations) //Removes Item Once Generated
+        public List<object> GenJamesLoot(int iterations) //Removes Item Once Generated
         {
 
             List<object> ReturnTable = new List<object>();

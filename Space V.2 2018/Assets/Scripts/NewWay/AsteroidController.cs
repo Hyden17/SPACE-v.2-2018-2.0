@@ -10,10 +10,10 @@ using LootFunctions;
 //This Class Has Been Re-Developed. Ignore next note..
 //IGNORE ME This Library Is now Depreciated... Too bad though...
 */
-public class AsteroidControlelr : MonoBehaviour
+public class AsteroidController : MonoBehaviour
 {
     CoreFunctions CF3 = new CoreFunctions();
-    LootTable AsteroidModelLT = new LootTable(); //Asteroid Model Loot Table... Probably important but anyway...
+    LootTable AsteroidLT = new LootTable(); //Asteroid Loot Table... Probably important, but anyway...
     List<GameObject> AsteroidModels = new List<GameObject>();
     public string Filepath = "";
     private bool HasRunLoad = false;
@@ -23,7 +23,6 @@ public class AsteroidControlelr : MonoBehaviour
     void Start()
     {
         RunLoadReas();
-
         //HereBeDragons
 
     }
@@ -38,6 +37,19 @@ public class AsteroidControlelr : MonoBehaviour
 
 
 
+
+
+
+    public GameObject ReturnAsteroidModel(string[] param, int checkcount = 1)
+    {
+        if (HasRunLoad != true)
+        {
+            RunLoadReas();
+        }
+       List<GameObject> TempList = CF3.FindObjectFromGameObject(param, AsteroidModels, checkcount);
+        Debug.LogWarning("HELP ME PLEASE");
+       return CF3.ConvenienceLoot(TempList, 1)[0];
+    }
 
 
 
@@ -59,6 +71,9 @@ public class AsteroidControlelr : MonoBehaviour
 
 
 }
+
+
+
 
 
 //Everything BEYOND THIS POINT is Depreciated.... It should be deleted to free up ram...
