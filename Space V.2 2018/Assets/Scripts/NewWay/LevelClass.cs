@@ -18,7 +18,7 @@ public class LevelClass : MonoBehaviour
     LootTable LevelEnemies = new LootTable();
     List<Vector3> AstPosTable = new List<Vector3>();
     CoreFunctions CF3 = new CoreFunctions();
-
+    public bool isGen = false;
     int PreGenAstCount = 0;
 
     // Start is called before the first frame update

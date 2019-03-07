@@ -6,7 +6,7 @@ using LootFunctions;
 
 namespace CoreFunctions3
 {
-  
+    [Serializable]
     public struct Range
     {
         public float Start1;
@@ -15,6 +15,10 @@ namespace CoreFunctions3
         {
             Start1 = Start;
             End1 = End;
+        }
+        public float generate()
+        {
+            return UnityEngine.Random.Range(Start1, End1);
         }
 
     }

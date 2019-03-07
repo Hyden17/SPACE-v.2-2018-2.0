@@ -18,6 +18,7 @@ public class AsteroidBase : WorldObject
     public Range[] Scale = new Range[3];
     public Vector3 TravelDirection = new Vector3();
     public AsteroidController ACM;
+    public bool isScalled = true;
     // Start is called before the first frame update
 
     
@@ -52,7 +53,7 @@ public class AsteroidBase : WorldObject
             directionalForce(UseDefaultVector);
             UseGravity(UseJamesGravity);
         }
-        
+       
 
     }
 
@@ -61,7 +62,7 @@ public class AsteroidBase : WorldObject
     {
         if(UseDefault == false)
         {
-            RB.AddForce(new Vector3(Random.Range(0, 1), Random.Range(0, 1), Random.Range(0, 1)) * Random.Range(speed.Start1, speed.End1));
+            RB.AddForce(new Vector3(Random.Range(0, 10), Random.Range(0, 10), Random.Range(0, 10)) * Random.Range(speed.Start1, speed.End1));
         }
         else
         {
