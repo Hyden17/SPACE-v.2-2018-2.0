@@ -13,14 +13,13 @@ public class AsteroidBase : WorldObject
     public GameObject effect;
     public Range speed;
     public bool ismoving;
-
     public bool UseDefaultVector = false;
     public Range[] Scale = new Range[3];
     public Vector3 TravelDirection = new Vector3();
     public AsteroidController ACM;
     public bool isScalled = true;
     // Start is called before the first frame update
-
+    public Transform thisTransform;
     
     void Onkill()
     {
@@ -53,21 +52,24 @@ public class AsteroidBase : WorldObject
             directionalForce(UseDefaultVector);
             UseGravity(UseJamesGravity);
         }
-       
+        this.transform.localScale = new Vector3(Scale[0].generate(), Scale[1].generate(), Scale[2].generate());
 
+        Debug.Log("This Ran");
     }
 
+    
 
     void directionalForce(bool UseDefault = false)
     {
         if(UseDefault == false)
         {
-            RB.AddForce(new Vector3(Random.Range(0, 10), Random.Range(0, 10), Random.Range(0, 10)) * Random.Range(speed.Start1, speed.End1));
+            RB.AddForce(new Vector3(Random.Range(0, 10), Random.Range(0, 10), Random.Range(0, 10)) * speed.generate());
         }
         else
         {
-            RB.AddForce(TravelDirection * Random.Range(speed.Start1, speed.End1));
+            RB.AddForce(TravelDirection * speed.generate());
         }
+        RB.AddTorque(new Vector3(Random.Range(0, 3 ), Random.Range(0, 3), Random.Range(0, 3)) * speed.generate());
     }
 
     void UseGravity(bool grav)

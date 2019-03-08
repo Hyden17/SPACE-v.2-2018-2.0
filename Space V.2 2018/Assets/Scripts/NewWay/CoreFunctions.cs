@@ -18,7 +18,10 @@ namespace CoreFunctions3
         }
         public float generate()
         {
+            Debug.Log("Warning, It may have worked");
             return UnityEngine.Random.Range(Start1, End1);
+
+
         }
 
     }
