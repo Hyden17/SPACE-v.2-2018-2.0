@@ -8,7 +8,7 @@ public class PewPewLaserGun : WeaponClass
     //Includes Own Targeting System
     Camera PlayerCam;
     GameObject WeaponPoint;
-     Bullet;
+    GameObject Bullet;
     int BurstFire;
     float Damage;
 
@@ -29,7 +29,9 @@ public class PewPewLaserGun : WeaponClass
         Ray ray = PlayerCam.ScreenPointToRay(Input.mousePosition);
         for(int i = 0; i <= iterations; i++)
         {
-            GameObject PewPew = GameObject.Instantiate()
+            GameObject PewPew = GameObject.Instantiate(Bullet);
+            BulletC Shot = PewPew.GetComponent<BulletC>();
+            
         }
     }
 

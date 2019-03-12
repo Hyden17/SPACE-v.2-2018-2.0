@@ -13,10 +13,14 @@ interface IDamageable
 
 interface Ishootable
     {
-
+        void damageObj(float h);
         void Addforce(Vector3 force);
+        int damageNUM
+        {
+            get;
+            set;
+        }
         
-
     }
 
 

@@ -44,12 +44,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a1620410a750324282b91dd8c16ab1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  invulnerable: 0
+  maxHealth: 0
   health: 100
   Level: 2
   RB: {fileID: 0}
   OnDestroyObject: {fileID: 0}
   Position: {x: 1, y: 1, z: 1}
-  UseJamesGravity: 0
+  UseJamesGravity: 1
   Type: SpeedBall
   spawnrate: 6
   IsPlayerControlled: 0
@@ -65,10 +67,10 @@ MonoBehaviour:
   droploot: {fileID: 0}
   effect: {fileID: 0}
   speed:
-    Start1: 30
-    End1: 50
+    Start1: 700
+    End1: 800
   ismoving: 1
-  UseDefaultVector: 0
+  UseDefaultVector: 1
   Scale:
   - Start1: 16
     End1: 18
