@@ -13,9 +13,15 @@ interface IDamageable
 
 interface Ishootable
     {
-        void damageObj(float h);
+        void damageObj(float h, GameObject GO);
         void Addforce(Vector3 force);
-        int damageNUM
+        void Launch(Vector3 dir);
+        float damageNUM
+        {
+            get;
+            set;
+        }
+        float speed
         {
             get;
             set;

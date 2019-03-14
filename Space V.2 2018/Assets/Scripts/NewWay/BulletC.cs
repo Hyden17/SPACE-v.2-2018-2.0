@@ -1,18 +1,66 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class BulletC : MonoBehaviour
+using interfaces;
+public class BulletC : MonoBehaviour, Ishootable
 {
-    // Start is called before the first frame update
+    Rigidbody rb;
+    public bool DestroyOnDamage = true;
+    public float damageNUM { get; set; }
+    public float speed { get; set; }
+    public float radius { get; set; }
+
+// Start is called before the first frame update
     void Start()
     {
-        
+        GetRigidBody(out rb);
+
     }
 
+    void GetRigidBody(out Rigidbody rb)
+    {
+        rb = this.gameObject.GetComponent<Rigidbody>();
+    }
+
+    void SetCollider(float radius)
+    {
+        if(this.gameObject.GetComponent<Collider>() != null)
+        {
+            SphereCollider CC = this.gameObject.AddComponent<SphereCollider>();
+            CC.isTrigger = true;
+            CC.radius = radius;
+        }
+    }
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject)
+        {
+
+        }
+    }
+
+
+
+    public void Addforce(Vector3 force)
+    {
+        rb.AddForce(force * speed);
+    }
+
+    public void damageObj(float h, GameObject Go)
+    {
+        
+    }
+
+    public void Launch(Vector3 dir)
+    {
+        
+    }
+
+    
 }
