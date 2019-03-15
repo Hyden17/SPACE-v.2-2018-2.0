@@ -13,6 +13,7 @@ public class PewPewLaserGun : WeaponClass
     public float Damage;
     public float Speed;
     public float Radius;
+    public string FireButton = "";
 
     // Start is called before the first frame update
     void Start()
@@ -25,8 +26,20 @@ public class PewPewLaserGun : WeaponClass
     {
         
     }
-    void shoot(int iterations)
+
+    void FixedUpdate()
     {
+        if (Input.GetKeyDown(FireButton))
+        {
+            Shoot(BurstFire);
+            
+        } 
+    }
+
+
+    void Shoot(int iterations)
+    {
+        
         Ray ray = PlayerCam.ScreenPointToRay(Input.mousePosition);
         for(int i = 0; i <= iterations; i++)
         {
