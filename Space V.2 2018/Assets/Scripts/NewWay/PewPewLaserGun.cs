@@ -9,9 +9,10 @@ public class PewPewLaserGun : WeaponClass
     Camera PlayerCam;
     GameObject WeaponPoint;
     GameObject Bullet;
-    int BurstFire;
-    float Damage;
-
+    public int BurstFire;
+    public float Damage;
+    public float Speed;
+    public float Radius;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +32,8 @@ public class PewPewLaserGun : WeaponClass
         {
             GameObject PewPew = GameObject.Instantiate(Bullet);
             BulletC Shot = PewPew.GetComponent<BulletC>();
-            
+            Shot.Setup(Damage, Speed, Radius);
+            Shot.Launch(ray.direction);
         }
     }
 

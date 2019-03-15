@@ -22,6 +22,17 @@ public class BulletC : MonoBehaviour, Ishootable
         rb = this.gameObject.GetComponent<Rigidbody>();
     }
 
+
+    public void Setup(float Damage, float Speed, float Radius)
+    {
+        damageNUM = Damage;
+        speed = Speed;
+        radius = Radius;
+    }
+
+
+
+
     void SetCollider(float radius)
     {
         if(this.gameObject.GetComponent<Collider>() != null)
@@ -39,10 +50,14 @@ public class BulletC : MonoBehaviour, Ishootable
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject)
+        IDamageable ID = collision.gameObject.GetComponent<IDamageable>() as IDamageable;
+        if (ID != null)
         {
 
+            ID.Damage(damageNUM);
+
         }
+
     }
 
 
@@ -51,13 +66,12 @@ public class BulletC : MonoBehaviour, Ishootable
     {
         rb.AddForce(force * speed);
     }
-
-    public void damageObj(float h, GameObject Go)
+    public void Launch(Vector3 force)
     {
-        
+        rb.AddForce(force * speed);
     }
 
-    public void Launch(Vector3 dir)
+    public void damageObj(float h, GameObject Go)
     {
         
     }
