@@ -23,14 +23,27 @@ namespace TimeMngr
         public float TimerLength;
         public float TimeLeft;
         public bool IsRunning;
-        public bool TimerFinished;
+        bool TimerFinished = true;
 
 
-        bool CheckTimer()
+        public bool CheckTimer()
         {
             return TimerFinished;
         }
 
+        public void SetTime(float time)
+        {
+            TimerLength = time;
+        }
+
+
+
+        public void ForceFinish()
+        {
+            IsRunning = false;
+            TimeLeft = 0;
+            TimerFinished = true;
+        }
 
         void Update()
         {
@@ -46,12 +59,18 @@ namespace TimeMngr
 
         }
 
-        void RunTimer()
+        public void RunTimer()
         {
             IsRunning = true;
         }
 
-        void ResetTimer()
+        public void ResetAndRun()
+        {
+            ResetTimer();
+            RunTimer();
+        }
+
+        public void ResetTimer()
         {
             TimeLeft = TimerLength;
             TimerFinished = false;

@@ -4,7 +4,7 @@ using UnityEngine;
 using interfaces;
 public class BulletC : MonoBehaviour, Ishootable
 {
-    Rigidbody rb;
+    Rigidbody Rb;
     public bool DestroyOnDamage = true;
     public float damageNUM { get; set; }
     public float speed { get; set; }
@@ -13,13 +13,14 @@ public class BulletC : MonoBehaviour, Ishootable
 // Start is called before the first frame update
     void Start()
     {
-        GetRigidBody(out rb);
-
+       
+        SetCollider(radius);
     }
 
     void GetRigidBody(out Rigidbody rb)
     {
         rb = this.gameObject.GetComponent<Rigidbody>();
+        Debug.Log("This was called");
     }
 
 
@@ -64,16 +65,25 @@ public class BulletC : MonoBehaviour, Ishootable
 
     public void Addforce(Vector3 force)
     {
-        rb.AddForce(force * speed);
+        if (Rb == null)
+        {
+            GetRigidBody(out Rb);
+        }
+        Rb.AddForce(force * speed);
     }
     public void Launch(Vector3 force)
     {
-        rb.AddForce(force * speed);
+        if (Rb == null)
+        {
+            GetRigidBody(out Rb);
+        }
+        Rb.AddForce(force * speed);
     }
 
     public void damageObj(float h, GameObject Go)
     {
-        
+        IDamageable ID = Go.GetComponent<IDamageable>() as IDamageable;
+        ID.Damage(h);
     }
 
     

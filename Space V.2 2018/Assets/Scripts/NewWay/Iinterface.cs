@@ -26,7 +26,7 @@ interface Ishootable
             get;
             set;
         }
-        
+        void Setup(float Damage, float Speed, float Radius);
     }
 
 

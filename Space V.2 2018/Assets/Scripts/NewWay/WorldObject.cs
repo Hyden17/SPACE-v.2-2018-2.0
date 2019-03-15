@@ -39,9 +39,9 @@ public class WorldObject : MonoBehaviour, IDamageable
     // Start is called before the first frame update
     public bool kill()
     {
-        if( invulnerable == false)
+        if( invulnerable != true)
         {
-
+            Destroy(this.gameObject);
         }
         return false;
     }
