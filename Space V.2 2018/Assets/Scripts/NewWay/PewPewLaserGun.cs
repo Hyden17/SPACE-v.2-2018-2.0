@@ -33,8 +33,11 @@ public class PewPewLaserGun : WeaponClass
 
     void FixedUpdate()
     {
-        
+        if (Input.GetKeyDown("e"))
+        {
             Shoot(BurstFire);
+        }
+           
         
     }
 
