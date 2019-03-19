@@ -15,6 +15,7 @@ public class PewPewLaserGun : WeaponClass
     public float Speed;
     public float Radius;
     public string FireButton = "E";
+    private float NewSpeed;
 
     Timer Cooltimer;
     // Start is called before the first frame update
@@ -51,9 +52,10 @@ public class PewPewLaserGun : WeaponClass
             Ray ray = PlayerCam.ScreenPointToRay(Input.mousePosition);
             for(int i = 0; i <= iterations; i++)
             {
-                GameObject PewPew = GameObject.Instantiate(Bullet);
+                GameObject PewPew = GameObject.Instantiate(Bullet, (Vector3) this.gameObject.transform.position, Quaternion.identity);
                 Ishootable Shot = PewPew.GetComponent<Ishootable>();
-                Shot.Setup(Damage, Speed, Radius);
+                NewSpeed  = Speed +  this.gameObject.GetComponentInParent<Rigidbody>().velocity.magnitude;
+                Shot.Setup(Damage, NewSpeed, Radius);
                 Shot.Launch(ray.direction);
             }
         }
